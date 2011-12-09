@@ -1,0 +1,3 @@
+RRSpec - Recursive RSpec
+
+The goal here is to reimplement rspec with specs written in rrspec, adhering as much as possible to TDD. Not sure if that's possible ATM.
