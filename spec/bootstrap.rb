@@ -23,10 +23,15 @@ module Bootstrap
     fix_now Time.now
   end
 
+  def self.it_ran
+    @it_ran = true
+  end
+
   def self.verify
     verify_summary
     verify_should_succeeds
     verify_should_fails
+    verify_it_ran
   end
 
   def self.verify_summary
@@ -41,5 +46,9 @@ module Bootstrap
     2.should == 3
     raise "Should doesn't fail"
   rescue RRSpec::AssertionError
+  end
+
+  def self.verify_it_ran
+    @it_ran.should == true
   end
 end
