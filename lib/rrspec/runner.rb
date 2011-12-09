@@ -3,12 +3,17 @@ class RRSpec::Runner
     @start = Time.now
 
     load_specs
+    run_specs
 
     print_summary
   end
 
   def load_specs
     Dir["./spec/**/*.rb"].each { |f| require f }
+  end
+
+  def run_specs
+    RRSpec.describes.each { |d| RRSpec::Sandbox.new.instance_eval(&d) }
   end
 
   def print_summary

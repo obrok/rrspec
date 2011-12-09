@@ -3,6 +3,7 @@ module RRSpec::ObjectExtensions
     RRSpec::Matcher.new(self)
   end
 
-  def describe(thing)    
+  def describe(thing, &block)
+    RRSpec.describes << block
   end
 end

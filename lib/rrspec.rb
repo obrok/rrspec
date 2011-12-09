@@ -3,10 +3,15 @@ module RRSpec
   autoload :ObjectExtensions, 'rrspec/object_extensions'
   autoload :Matcher, 'rrspec/matcher'
   autoload :AssertionError, 'rrspec/assertion_error'
+  autoload :Sandbox, 'rrspec/sandbox'
 
   Object.send(:include, ObjectExtensions)
 
   def self.run
     Runner.new.run
+  end
+
+  def self.describes
+    @describes ||= []
   end
 end
