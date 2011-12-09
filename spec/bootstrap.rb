@@ -9,6 +9,6 @@ module Bootstrap
   end
 
   def self.verify
-    raise "Summary not printed" unless $stdout.output.include?("Finished\n")
+    raise "Summary not printed" unless /Finished in [^ ]+ seconds/ =~ $stdout.output
   end
 end
