@@ -1,5 +1,7 @@
 module RRSpec
+  autoload :Runner, 'rrspec/runner'
+
   def self.run
-    puts "Finished in 10 seconds"
+    Runner.new.run
   end
 end
