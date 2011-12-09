@@ -24,6 +24,15 @@ module Bootstrap
   end
 
   def self.verify
+    verify_summary
+    verify_should
+  end
+
+  def self.verify_summary
     raise "Summary not printed" unless /Finished in 19.7 seconds/ =~ $stdout.output
+  end
+
+  def self.verify_should
+    raise "Should doesn't succeed" unless 2.should == 2
   end
 end
