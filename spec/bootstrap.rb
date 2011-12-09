@@ -25,14 +25,21 @@ module Bootstrap
 
   def self.verify
     verify_summary
-    verify_should
+    verify_should_succeeds
+    verify_should_fails
   end
 
   def self.verify_summary
     raise "Summary not printed" unless /Finished in 19.7 seconds/ =~ $stdout.output
   end
 
-  def self.verify_should
+  def self.verify_should_succeeds
     raise "Should doesn't succeed" unless 2.should == 2
+  end
+
+  def self.verify_should_fails
+    2.should == 3
+    raise "Should doesn't fail"
+  rescue RRSpec::AssertionError
   end
 end
