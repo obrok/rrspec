@@ -8,7 +8,7 @@ class RRSpec::Runner
   end
 
   def load_specs
-    Dir["./spec/*.rb"].each { |f| require f }    
+    Dir["./spec/**/*.rb"].each { |f| require f }
   end
 
   def print_summary
