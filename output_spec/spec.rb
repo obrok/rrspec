@@ -9,5 +9,6 @@ module OutputSpec
 
   RRSpec.run
 
-  formatter.passed.should == true
+  formatter.passed.should == 3
+  formatter.failed.should == 2
 end
