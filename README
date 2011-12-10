@@ -1,3 +1,7 @@
 RRSpec - Recursive RSpec
 
 The goal here is to reimplement rspec (or write an rspec-like thing) with specs written in rrspec, adhering as much as possible to TDD. Not sure if that's possible ATM. I'm going to create a commit every time the specs fail in the expected manner and another one when they pass again.
+
+The bigger plan is to extract just the spec commits from this at some point to create a koan-like excercise.
+
+Credit where credit is due - inspired by this talk: https://www.destroyallsoftware.com/screencasts/catalog/building-rspec-from-scratch
