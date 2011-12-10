@@ -4,5 +4,7 @@ class RRSpec::Sandbox
     RRSpec.formatter.pass
   rescue RRSpec::AssertionError
     RRSpec.formatter.fail
+  rescue Exception
+    RRSpec.formatter.error
   end
 end
