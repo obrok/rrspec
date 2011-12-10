@@ -3,11 +3,9 @@ class RRSpec::Expectation
     @subject = subject
   end
 
-  def ==(other)
-    @subject == other or raise RRSpec::AssertionError
-  end
-
-  def =~(other)
-    @subject =~ other
+  [:==, :=~].each do |method|
+    define_method(method) do |other|
+      @subject.send(method, other) or raise RRSpec::AssertionError
+    end
   end
 end
