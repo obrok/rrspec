@@ -16,6 +16,6 @@ module RRSpec::ObjectExtensions
   end
 
   def include(thing)
-    RRSpec::Matcher::IncludeMatcher.new
+    RRSpec::Matcher::IncludeMatcher.new(thing)
   end
 end
