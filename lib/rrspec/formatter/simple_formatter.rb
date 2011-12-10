@@ -5,6 +5,9 @@ class RRSpec::Formatter::SimpleFormatter
     @io = io
   end
 
+  def start
+  end
+
   def pass
     @io.print(".")
   end

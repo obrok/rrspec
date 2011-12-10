@@ -1,11 +1,9 @@
 class RRSpec::Runner
-  def run    
-    @start = Time.now
+  def run
+    RRSpec.formatter.start
 
     load_specs
     run_specs
-
-    print_summary
   end
 
   def load_specs
@@ -14,10 +12,5 @@ class RRSpec::Runner
 
   def run_specs
     RRSpec.describes.each { |d| RRSpec::Sandbox.new.instance_eval(&d) }
-  end
-
-  def print_summary
-    time = Time.now - @start
-    puts "Finished in #{time.round(1)} seconds."
   end
 end
