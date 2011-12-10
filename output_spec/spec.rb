@@ -10,6 +10,7 @@ module OutputSpec
   RRSpec.run
 
   formatter.calls.should == [
+                             :start,
                              :pass,
                              :pass,
                              :pass,
