@@ -8,4 +8,9 @@ describe RRSpec::Expectation do
   it "should succeed in matching against a matcher" do
     true.should TestMatcher.new
   end
+
+  it "should fail in matching against a matcher" do
+    result = (false.should TestMatcher.new) rescue :raised
+    result.should == :raised
+  end
 end
