@@ -1,4 +1,8 @@
+require 'stringio'
+
 module Bootstrap
+  TestIO = StringIO.new
+
   $stdout.define_singleton_method(:write) do |arg|
     @output = output + arg
     super(arg)
@@ -32,6 +36,7 @@ module Bootstrap
     verify_should_succeeds
     verify_should_fails
     verify_it_ran
+    verify_formatter_prints_errors
   end
 
   def self.verify_summary
@@ -50,5 +55,9 @@ module Bootstrap
 
   def self.verify_it_ran
     @it_ran.should == true
+  end
+
+  def self.verify_formatter_prints_errors
+    TestIO.string[0].should == "E"
   end
 end
