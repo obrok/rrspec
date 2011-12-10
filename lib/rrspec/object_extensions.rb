@@ -1,7 +1,7 @@
 module RRSpec::ObjectExtensions
   def should(matcher=nil)
     if matcher
-      true
+      matcher.match(self)
     else
       RRSpec::Expectation.new(self)
     end

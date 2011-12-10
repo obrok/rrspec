@@ -22,13 +22,13 @@ class RRSpec::Formatter::SimpleFormatter
     @io.print(".")
   end
 
-  def error
+  def error(exception=nil)
     @tests += 1
     @fails += 1
     @io.print("E")
   end
 
-  def fail
+  def fail(exception=nil)
     @tests += 1
     @fails += 1
     @io.print("F")
