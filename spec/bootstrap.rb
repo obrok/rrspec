@@ -37,6 +37,7 @@ module Bootstrap
     verify_should_fails
     verify_it_ran
     verify_formatter_prints_errors
+    verify_formatter_prints_fails
   end
 
   def self.verify_summary
@@ -59,5 +60,9 @@ module Bootstrap
 
   def self.verify_formatter_prints_errors
     TestIO.string[0].should == "E"
+  end
+
+  def self.verify_formatter_prints_fails
+    TestIO.string[1].should == "F"
   end
 end
