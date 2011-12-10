@@ -6,4 +6,8 @@ class RRSpec::Expectation
   def ==(other)
     @subject == other or raise RRSpec::AssertionError
   end
+
+  def =~(other)
+    @subject =~ other
+  end
 end
