@@ -1,18 +1,8 @@
 class TestFormatter
-  attr_accessor :passed, :failed, :errors
+  attr_accessor :calls
 
-  def pass
-    @passed ||= 0
-    @passed += 1
-  end
-
-  def fail
-    @failed ||= 0
-    @failed += 1
-  end
-
-  def error
-    @errors ||= 0
-    @errors += 1
+  def method_missing(method, *args, &block)
+    @calls ||= []
+    @calls << method
   end
 end

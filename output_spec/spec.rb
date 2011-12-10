@@ -9,7 +9,12 @@ module OutputSpec
 
   RRSpec.run
 
-  formatter.passed.should == 3
-  formatter.failed.should == 2
-  formatter.errors.should == 1
+  formatter.calls.should == [
+                             :pass,
+                             :pass,
+                             :pass,
+                             :fail,
+                             :fail,
+                             :error
+                            ]
 end
