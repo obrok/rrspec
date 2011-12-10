@@ -12,36 +12,16 @@ module Bootstrap
     @output ||= ""
   end
 
-  def self.fix_now(time)
-    Time.define_singleton_method(:now) do
-      if @was_here
-        time + 19.668
-      else
-        @was_here = true
-        time
-      end
-    end
-  end
-
-  def self.start
-    fix_now Time.now
-  end
-
   def self.it_ran
     @it_ran = true
   end
 
   def self.verify
-    verify_summary
     verify_should_succeeds
     verify_should_fails
     verify_it_ran
     verify_formatter_prints_errors
     verify_formatter_prints_fails
-  end
-
-  def self.verify_summary
-    raise "Summary not printed" unless /Finished in 19.7 seconds/ =~ $stdout.output
   end
 
   def self.verify_should_succeeds
