@@ -1,0 +1,2 @@
+class TestFormatter
+end
