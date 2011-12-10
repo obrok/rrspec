@@ -1,6 +1,10 @@
 module RRSpec::ObjectExtensions
-  def should
-    RRSpec::Matcher.new(self)
+  def should(matcher=nil)
+    if matcher
+      true
+    else
+      RRSpec::Expectation.new(self)
+    end
   end
 
   def describe(thing, &block)

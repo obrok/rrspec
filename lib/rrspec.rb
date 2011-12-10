@@ -1,10 +1,11 @@
 module RRSpec
   autoload :Runner, 'rrspec/runner'
   autoload :ObjectExtensions, 'rrspec/object_extensions'
-  autoload :Matcher, 'rrspec/matcher'
+  autoload :Expectation, 'rrspec/expectation'
   autoload :AssertionError, 'rrspec/assertion_error'
   autoload :Sandbox, 'rrspec/sandbox'
   autoload :Formatter, 'rrspec/formatter'
+  autoload :Matcher, 'rrspec/matcher'
 
   Object.send(:include, ObjectExtensions)
 

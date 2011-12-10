@@ -1,9 +1,3 @@
-class RRSpec::Matcher
-  def initialize(subject)
-    @subject = subject
-  end
-
-  def ==(other)
-    @subject == other or raise RRSpec::AssertionError
-  end
+module RRSpec::Matcher
+  autoload :BaseMatcher, 'rrspec/matcher/base_matcher'
 end
