@@ -5,16 +5,26 @@ class RRSpec::Formatter::SimpleFormatter
     @io = io
 
     @tests = 0
-    @fails = 0
+    @errors = []
   end
 
   def start
     @start = Time.now
+    @io.puts
   end
 
   def end
     time = Time.now - @start
-    @io.print("\n\nFinished in #{time.round(1)} seconds\n#{@tests} examples, #{@fails} failures\n")
+    @io.print("\n\n")
+    print_errors
+    @io.print("\n\nFinished in #{time.round(1)} seconds\n#{@tests} examples, #{@errors.size} failures\n")
+  end
+
+  def print_errors
+    @errors.each do |error|
+      @io.puts error
+      @io.puts error.backtrace
+    end
   end
 
   def pass
@@ -24,13 +34,13 @@ class RRSpec::Formatter::SimpleFormatter
 
   def error(exception=nil)
     @tests += 1
-    @fails += 1
+    @errors << exception
     @io.print("E")
   end
 
   def fail(exception=nil)
     @tests += 1
-    @fails += 1
+    @errors << exception
     @io.print("F")
   end
 end
