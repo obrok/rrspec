@@ -14,4 +14,8 @@ module RRSpec
   def self.describes
     @describes ||= []
   end
+
+  def self.formatter=(value)
+    @formatter = value
+  end
 end
