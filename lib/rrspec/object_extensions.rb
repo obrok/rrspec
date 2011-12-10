@@ -10,4 +10,8 @@ module RRSpec::ObjectExtensions
   def describe(thing, &block)
     RRSpec.describes << block
   end
+
+  def raise_error(error)
+    RRSpec::Matcher::ErrorMatcher.new
+  end
 end
