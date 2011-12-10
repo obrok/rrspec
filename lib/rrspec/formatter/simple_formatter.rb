@@ -11,4 +11,8 @@ class RRSpec::Formatter::SimpleFormatter
   def error
     @io.print("E")
   end
+
+  def fail
+    @io.print("F")
+  end
 end
