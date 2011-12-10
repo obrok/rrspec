@@ -16,6 +16,7 @@ module OutputSpec
                              :pass,
                              :fail,
                              :fail,
-                             :error
+                             :error,
+                             :end
                             ]
 end
