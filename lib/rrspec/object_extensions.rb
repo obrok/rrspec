@@ -14,4 +14,8 @@ module RRSpec::ObjectExtensions
   def raise_error
     RRSpec::Matcher::ErrorMatcher.new
   end
+
+  def include(thing)
+    RRSpec::Matcher::IncludeMatcher.new
+  end
 end
