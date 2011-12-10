@@ -11,4 +11,5 @@ module OutputSpec
 
   formatter.passed.should == 3
   formatter.failed.should == 2
+  formatter.errors.should == 1
 end

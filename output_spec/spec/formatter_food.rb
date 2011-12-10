@@ -9,4 +9,8 @@ describe "Formatter food" do
       raise RRSpec::AssertionError.new
     end
   end
+
+  it "crashes" do
+    raise ArgumentError
+  end
 end
