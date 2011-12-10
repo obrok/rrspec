@@ -1,5 +1,16 @@
 class RRSpec::Matcher::ErrorMatcher < RRSpec::Matcher::BaseMatcher
   def match(thing)
-    true
+    if raised(thing)
+      return true
+    else
+      raise RRSpec::AssertionError
+    end 
+  end
+
+  def raised(thing)
+    thing.call
+    return nil
+  rescue Exception => e
+    return e
   end
 end
