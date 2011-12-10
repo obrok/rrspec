@@ -4,6 +4,7 @@ module RRSpec
   autoload :Matcher, 'rrspec/matcher'
   autoload :AssertionError, 'rrspec/assertion_error'
   autoload :Sandbox, 'rrspec/sandbox'
+  autoload :Formatter, 'rrspec/formatter'
 
   Object.send(:include, ObjectExtensions)
 
@@ -17,5 +18,9 @@ module RRSpec
 
   def self.formatter=(value)
     @formatter = value
+  end
+
+  def self.formatter
+    @formatter ||= RRSpec::Formatter::SimpleFormatter.new
   end
 end
