@@ -23,9 +23,12 @@ describe RRSpec::Formatter::SimpleFormatter do
     Time.fix_time(time)
     formatter.start
     Time.fix_time(time + 19.678)
+    formatter.pass
+    formatter.error
+    formatter.fail
     formatter.end
     Time.release_time
 
-    io.string.should == "\n\nFinished in 19.7 seconds\n"
+    io.string.should == ".EF\n\nFinished in 19.7 seconds\n3 examples, 2 failures\n"
   end
 end
