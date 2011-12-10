@@ -6,6 +6,7 @@ class RRSpec::Formatter::SimpleFormatter
   end
 
   def pass
+    @io.print(".")
   end
 
   def error
