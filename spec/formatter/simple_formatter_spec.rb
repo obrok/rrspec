@@ -20,10 +20,11 @@ describe RRSpec::Formatter::SimpleFormatter do
     io = StringIO.new
     formatter = RRSpec::Formatter::SimpleFormatter.new(io)
 
-    Time.define_singleton_method(:now) { time }
+    Time.fix_time(time)
     formatter.start
-    Time.define_singleton_method(:now) { time + 19.678 }
+    Time.fix_time(time + 19.678)
     formatter.end
+    Time.release_time
 
     io.string.should == "\n\nFinished in 19.7 seconds\n"
   end

@@ -3,14 +3,38 @@ require 'stringio'
 module Bootstrap
   TestIO = StringIO.new
 
-  $stdout.define_singleton_method(:write) do |arg|
-    @output = output + arg
-    super(arg)
-  end
+  lambda do
+    output = ""
 
-  $stdout.define_singleton_method(:output) do
-    @output ||= ""
-  end
+    $stdout.define_singleton_method(:write) do |arg|
+      output = output + arg
+      super(arg)
+    end
+
+    $stdout.define_singleton_method(:output) do
+      output
+    end
+  end.call
+
+  lambda do
+    time_fix = nil
+
+    Time.define_singleton_method(:fix_time) do |time|
+      time_fix = time
+    end
+
+    Time.define_singleton_method(:release_time) do
+      time_fix = nil
+    end
+
+    (class << Time; self; end).instance_exec do
+      alias_method(:old_now, :now)
+
+      define_method(:now) do
+        time_fix || old_now
+      end
+    end
+  end.call
 
   def self.it_ran
     @it_ran = true
