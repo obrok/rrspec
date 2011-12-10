@@ -6,11 +6,11 @@ describe "Formatter food" do
 
   2.times do
     it "fails" do
-      raise RRSpec::AssertionError.new
+      raise ExemplaryAssertionError
     end
   end
 
   it "crashes" do
-    raise ArgumentError
+    raise ExemplaryOtherError
   end
 end

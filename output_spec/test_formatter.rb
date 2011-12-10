@@ -3,6 +3,6 @@ class TestFormatter
 
   def method_missing(method, *args, &block)
     @calls ||= []
-    @calls << method
+    @calls << [method] + args
   end
 end

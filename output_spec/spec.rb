@@ -2,6 +2,9 @@ $LOAD_PATH << "../lib"
 
 require 'rrspec'
 
+ExemplaryAssertionError = RRSpec::AssertionError.new
+ExemplaryOtherError = ArgumentError.new
+
 module OutputSpec
   autoload :TestFormatter, './test_formatter'
 
@@ -10,13 +13,13 @@ module OutputSpec
   RRSpec.run
 
   formatter.calls.should == [
-                             :start,
-                             :pass,
-                             :pass,
-                             :pass,
-                             :fail,
-                             :fail,
-                             :error,
-                             :end
+                             [:start],
+                             [:pass],
+                             [:pass],
+                             [:pass],
+                             [:fail, ExemplaryAssertionError],
+                             [:fail, ExemplaryAssertionError],
+                             [:error, ExemplaryOtherError],
+                             [:end]
                             ]
 end
