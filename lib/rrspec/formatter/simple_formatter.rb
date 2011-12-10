@@ -6,9 +6,12 @@ class RRSpec::Formatter::SimpleFormatter
   end
 
   def start
+    @start = Time.now
   end
 
   def end
+    time = Time.now - @start
+    @io.print("\n\nFinished in #{time.round(1)} seconds\n")
   end
 
   def pass
