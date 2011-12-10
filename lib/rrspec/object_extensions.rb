@@ -11,7 +11,7 @@ module RRSpec::ObjectExtensions
     RRSpec.describes << block
   end
 
-  def raise_error(error)
+  def raise_error
     RRSpec::Matcher::ErrorMatcher.new
   end
 end
