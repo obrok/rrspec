@@ -8,6 +8,9 @@ class RRSpec::Formatter::SimpleFormatter
   def start
   end
 
+  def end
+  end
+
   def pass
     @io.print(".")
   end

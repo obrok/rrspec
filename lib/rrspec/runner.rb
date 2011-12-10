@@ -4,6 +4,8 @@ class RRSpec::Runner
 
     load_specs
     run_specs
+
+    RRSpec.formatter.end
   end
 
   def load_specs
