@@ -1,5 +1,6 @@
 class RRSpec::Sandbox
   def it(description, &block)
+    RRSpec.formatter.start_test(description)
     block.call
     RRSpec.formatter.pass
   rescue RRSpec::AssertionError => e

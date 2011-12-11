@@ -27,6 +27,9 @@ class RRSpec::Formatter::SimpleFormatter
     end
   end
 
+  def start_test(description)
+  end
+
   def pass
     @tests += 1
     @io.print(".")
