@@ -6,6 +6,7 @@ module RRSpec
   autoload :Sandbox, 'rrspec/sandbox'
   autoload :Formatter, 'rrspec/formatter'
   autoload :Matcher, 'rrspec/matcher'
+  autoload :Core, 'rrspec/core'
 
   Object.send(:include, ObjectExtensions)
 
@@ -13,8 +14,8 @@ module RRSpec
     Runner.new.run
   end
 
-  def self.describes
-    @describes ||= []
+  def self.examples
+    @examples ||= []
   end
 
   def self.formatter=(value)

@@ -13,6 +13,9 @@ class RRSpec::Runner
   end
 
   def run_specs
-    RRSpec.describes.each { |d| RRSpec::Sandbox.new.instance_eval(&d) }
+    RRSpec.examples.each do |context|
+      RRSpec.formatter.start_context(context.description)
+      RRSpec::Sandbox.new.instance_eval(&context.block)
+    end
   end
 end

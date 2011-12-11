@@ -8,7 +8,7 @@ module RRSpec::ObjectExtensions
   end
 
   def describe(thing, &block)
-    RRSpec.describes << block
+    RRSpec.examples << RRSpec::Core::Context.new(thing, block)
   end
 
   def raise_error
