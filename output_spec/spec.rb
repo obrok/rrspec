@@ -14,11 +14,17 @@ module OutputSpec
 
   formatter.calls.should == [
                              [:start],
+                             [:start_test, "passes"],
                              [:pass],
+                             [:start_test, "passes"],
                              [:pass],
+                             [:start_test, "passes"],
                              [:pass],
+                             [:start_test, "fails"],
                              [:fail, ExemplaryAssertionError],
+                             [:start_test, "fails"],
                              [:fail, ExemplaryAssertionError],
+                             [:start_test, "crashes"],
                              [:error, ExemplaryOtherError],
                              [:end]
                             ]
