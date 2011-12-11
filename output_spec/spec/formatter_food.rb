@@ -9,7 +9,9 @@ describe "Formatter food" do
       raise ExemplaryAssertionError
     end
   end
+end
 
+describe "More food" do
   it "crashes" do
     raise ExemplaryOtherError
   end

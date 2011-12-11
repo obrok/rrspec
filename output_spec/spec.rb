@@ -14,6 +14,7 @@ module OutputSpec
 
   formatter.calls.should == [
                              [:start],
+                             [:start_context, "Formatter food"],
                              [:start_test, "passes"],
                              [:pass],
                              [:start_test, "passes"],
@@ -24,6 +25,7 @@ module OutputSpec
                              [:fail, ExemplaryAssertionError],
                              [:start_test, "fails"],
                              [:fail, ExemplaryAssertionError],
+                             [:start_context, "More food"],
                              [:start_test, "crashes"],
                              [:error, ExemplaryOtherError],
                              [:end]
